@@ -1,0 +1,20 @@
+.img-portada {
+  width: 100%;
+  max-width: 467px;
+  max-height: 735px;
+}
+@media (min-width: 768px) {
+  .img-portada {
+    width: 100%;
+    max-width: 467px;
+    min-height: 735px;
+  }
+}
+
+.text-hiden {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

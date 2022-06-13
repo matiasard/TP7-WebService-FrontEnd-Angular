@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <!-- START FORM -->
+    <div class="col-sm-12 col-md-7 mt-5 mx-auto">
+
+      <form class="row g-3 py-4 bg-primary text-light"
+        autocomplete="off">
+        <!-- (ngSubmit)="convertirMoneda()" -->
+        <p class="h3 mt-0">Agregar Nuevo Libro</p>
+        <hr>
+        <div class="col-md-12">
+          <label for="titulo" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="titulo"
+            placeholder="Titulo"
+            name="titulo" [(ngModel)]="titulo">
+        </div>
+        <!-- <div class="col-md-12">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <input type="text" class="form-control" id="descripcion"
+            placeholder="Descripcion"
+            name="descripcion" [(ngModel)]="descripcion">
+        </div> -->
+
+        <div class="col-md-12">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"
+            [(ngModel)]="descripcion"></textarea>
+        </div>
+
+        <div class="col-md-12">
+          <label for="imagen" class="form-label">URL Imagen</label>
+          <input type="text" class="form-control" id="imagen"
+            placeholder="URL Imagen"
+            name="imagen" [(ngModel)]="imagen">
+        </div>
+        <div class="col-md-12">
+          <label for="stock" class="form-label">Cantidad de Stock</label>
+          <input type="number" class="form-control" id="stock"
+            placeholder="Cantidad"
+            name="stock" [(ngModel)]="stock">
+        </div>
+        <div class="col-md-12 mt-3">
+          <label for="destacado" class="form-label mt-2 d-flex gap-2 align-items-center">
+            <input type="checkbox" name="destacado" id="destacado" [(ngModel)]="destacado">
+            Destacado
+          </label>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-warning w-100"
+            (click)="crearLibro()"><strong>Enviar</strong></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

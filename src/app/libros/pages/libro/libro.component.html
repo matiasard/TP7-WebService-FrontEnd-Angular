@@ -1,0 +1,43 @@
+<h1 class="bg-primary text-center
+  w-50 mx-auto rounded
+  text-light mt-3">Punto-1</h1>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 mb-4">
+      <div class="d-flex justify-content-center gap-3">
+        <a routerLink="nuevoLibro" class="btn btn-success btn-lg ">+ Agregar Libro</a>
+        <button type="button" class="btn btn-success btn-lg ">+ Crear Libro</button>
+
+      </div>
+    </div>
+    <!-- CARRUSEL -->
+    <div class="col-8 mx-auto mb-4">
+      <div id="carouselExampleControls" class="carousel slide bg-dark" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="img-fluid">
+              <img src="{{ librosDestacados[indice].imagen }}" class="d-block mx-auto img-portada" alt="Imagen portada">
+            </div>
+            <!-- <img src="./../../assets/images/punto1-img/{{ libros[indice].imagen }}" class="d-block w-100" alt="..."> -->
+            <div class="carousel-caption d-none d-md-block bg-dark opacity-75 rounded px-5">
+              <h3>{{ librosDestacados[indice].titulo }}</h3>
+              <p class="text-hiden">{{ librosDestacados[indice].descripcion }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev" (click)="back2()">
+          <span class="carousel-control-prev-icon bg-dark rounded" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next" (click)="next2()">
+          <span class="carousel-control-next-icon bg-dark rounded" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- END CARRUSEL -->
+  </div>
+</div>
