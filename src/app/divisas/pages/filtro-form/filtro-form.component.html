@@ -14,7 +14,6 @@
             *ngFor="let moneda of monedas"
             [ngValue]="moneda.currency_code">
             {{moneda.currency_code}} - {{moneda.country}}
-            <!-- {{moneda}} -->
           </option>
 
         </select>
@@ -31,7 +30,6 @@
             *ngFor="let moneda of monedas"
             [ngValue]="moneda.currency_code">
             {{moneda.currency_code}} - {{moneda.country}}
-            <!-- {{moneda}} -->
           </option>
 
         </select>
@@ -39,7 +37,7 @@
       <br>
       <div class="col-12">
         <button type="submit" class="btn btn-warning w-100"
-          (click)="filtrar()"><strong>Convertir</strong></button>
+          (click)="filtrar()"><strong>Buscar</strong></button>
       </div>
       <div class="col-12 mt-2">
         <button type="submit" class="btn btn-warning w-100"

@@ -53,11 +53,12 @@ export class ConversorDivisasService {
 
   constructor(private http: HttpClient) {}
 
-  getTransacciones(): Observable<any> {
-    const urlTranasacciones: string = `${this.url}/transaccion`;
-    return this.http.get(urlTranasacciones);
-  }
+  // getTransacciones(): Observable<any> {
+  //   const urlTranasacciones: string = `${this.url}/transaccion`;
+  //   return this.http.get(urlTranasacciones);
+  // }
 
+  //* Obtener todas las Transacciones
   getTransacciones2() {
     const urlTranasacciones: string = `${this.url}/transaccion`;
     return this.http.get<any>(urlTranasacciones).subscribe((res) => {
@@ -65,6 +66,7 @@ export class ConversorDivisasService {
     });
   }
 
+  //* Convercion de monedas
   conversionTransaccion(
     email: string,
     valor: number,
@@ -82,14 +84,16 @@ export class ConversorDivisasService {
     return this.http.post(urlConversion, body).subscribe(
       (res) => {
         console.log(res);
+        this.getTransacciones2();
       },
       (error) => {
-        alert('Error en la peticion, no se pudo convertir');
+        alert('Error en la peticion, NO se pudo convertir.');
         console.log(error);
       }
     );
   }
 
+  //* Busqueda de Transacciones
   transaccionesFilter(mOrigen: string, mDestino: string) {
     const urlFilter: string = `${this.url}/transaccion/listCurrency/${mOrigen}/${mDestino}`;
     return this.http.get<any>(urlFilter).subscribe((res) => {

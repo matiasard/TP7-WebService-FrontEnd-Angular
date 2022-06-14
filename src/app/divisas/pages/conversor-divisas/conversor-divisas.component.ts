@@ -9,48 +9,13 @@ import { ConversorDivisasService } from '../../services/conversor-divisas.servic
 })
 export class ConversorDivisasComponent implements OnInit {
   isChecked = false;
+  isZero: boolean = false;
 
   email: string = '';
   valor: number = 0;
   fromType: string = '';
   toType!: string;
-  isZero: boolean = false;
-  // monedasList: string[] = ['USD', 'EUR', 'GBP'];
-  monedas: any[] = [
-    {
-      currency_code: 'ARS',
-      country: 'Argentina',
-    },
-    {
-      currency_code: 'BRL',
-      country: 'Brazil',
-    },
-    {
-      currency_code: 'GBP',
-      country: 'United Kingdom',
-    },
-    {
-      currency_code: 'USD',
-      country: 'Estados Unidos',
-    },
-    {
-      currency_code: 'HKD',
-      country: 'Hong Kong',
-    },
-    {
-      currency_code: 'PEN',
-      country: 'Peru',
-    },
-    {
-      currency_code: 'EGP',
-      country: 'Egypt',
-    },
-    {
-      currency_code: 'COP',
-      country: 'Colombia',
-    },
-  ];
-  transacciones: Divisa[] = [];
+  // transacciones: Divisa[] = [];
 
   constructor(private conversorService: ConversorDivisasService) {}
 
@@ -68,9 +33,16 @@ export class ConversorDivisasComponent implements OnInit {
 
   //* METODO GET - Tabla de Transacciones
   get resultados() {
+    console.log(this.conversorService.listaTransacciones);
     return this.conversorService.listaTransacciones;
   }
 
+  //* Get - Obtener todas las monedas
+  get monedas() {
+    return this.conversorService.monedasList;
+  }
+
+  //* COnversion
   convertirMoneda() {
     this.valor <= 0 ? (this.isZero = true) : (this.isZero = false);
     if (
@@ -95,18 +67,10 @@ export class ConversorDivisasComponent implements OnInit {
     this.email = '';
     this.fromType = '';
     this.toType = '';
-
-    //* Update Table
-    // this.tablaTransacciones();
   }
 
-  filtrarTransaccion() {
-    //* Re asignar el valor de this.transacciones con el resultado de la busqueda con Filtro (ARS-USD)
-    // this.transacciones = transaccion.listaTransacciones;
-  }
-
+  //* Busqueda
   mostrarFiltro() {
-    console.log(this.isChecked);
     this.isChecked = !this.isChecked;
   }
 }
