@@ -33,7 +33,6 @@ export class ConversorDivisasComponent implements OnInit {
 
   //* METODO GET - Tabla de Transacciones
   get resultados() {
-    console.log(this.conversorService.listaTransacciones);
     return this.conversorService.listaTransacciones;
   }
 
