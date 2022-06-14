@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <div class="row">
+    <form class="col col-md-8 g-3 mt-2 mb-4 py-4 bg-primary text-light"
+      autocomplete="off">
+      <div class="col-md-12">
+        <label for="inputState" class="form-label">Moneda Origen</label>
+        <select
+          id="inputState"
+          class="form-select"
+          name="fromType"
+          [(ngModel)]="monedaOrigen">
+
+          <option
+            *ngFor="let moneda of monedas"
+            [ngValue]="moneda.currency_code">
+            {{moneda.currency_code}} - {{moneda.country}}
+            <!-- {{moneda}} -->
+          </option>
+
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label for="inputState" class="form-label">Moneda Destino</label>
+        <select
+          id="inputState"
+          class="form-select"
+          name="toType"
+          [(ngModel)]="monedaDestino">
+
+          <option
+            *ngFor="let moneda of monedas"
+            [ngValue]="moneda.currency_code">
+            {{moneda.currency_code}} - {{moneda.country}}
+            <!-- {{moneda}} -->
+          </option>
+
+        </select>
+      </div>
+      <br>
+      <div class="col-12">
+        <button type="submit" class="btn btn-warning w-100"
+          (click)="filtrar()"><strong>Convertir</strong></button>
+      </div>
+      <div class="col-12 mt-2">
+        <button type="submit" class="btn btn-warning w-100"
+          (click)="allTransacciones()"><strong>Mostrar todas las Transacciones</strong></button>
+      </div>
+    </form>
+
+  </div>
+</div>
