@@ -15,21 +15,12 @@ export class ConversorDivisasComponent implements OnInit {
   valor: number = 0;
   fromType: string = '';
   toType!: string;
-  // transacciones: Divisa[] = [];
 
   constructor(private conversorService: ConversorDivisasService) {}
 
   ngOnInit(): void {
-    // this.tablaTransacciones();
     this.conversorService.getTransacciones2();
   }
-
-  // tablaTransacciones() {
-  //   this.conversorService.getTransacciones().subscribe((transaccion) => {
-  //     this.transacciones = transaccion.listaTransacciones;
-  //     console.log(this.transacciones);
-  //   });
-  // }
 
   //* METODO GET - Tabla de Transacciones
   get resultados() {
@@ -54,7 +45,7 @@ export class ConversorDivisasComponent implements OnInit {
     }
 
     //* Convertir moenda origen a moneda Destino
-    this.conversorService.conversionTransaccion(
+    this.conversorService.createTransaccion(
       this.email,
       this.valor,
       this.fromType,

@@ -9,7 +9,7 @@ import { Divisa } from '../models/divisa';
 export class ConversorDivisasService {
   private url: string = 'http://localhost:3000/api';
   private transaccionList: Divisa[] = [];
-  private monedas: any[] = [
+  private monedasCode: any[] = [
     {
       currency_code: 'ARS',
       country: 'Argentina',
@@ -48,7 +48,7 @@ export class ConversorDivisasService {
     return [...this.transaccionList];
   }
   get monedasList() {
-    return [...this.monedas];
+    return [...this.monedasCode];
   }
 
   constructor(private http: HttpClient) {}
@@ -67,7 +67,7 @@ export class ConversorDivisasService {
   }
 
   //* Convercion de monedas
-  conversionTransaccion(
+  createTransaccion(
     email: string,
     valor: number,
     fromType: string,
