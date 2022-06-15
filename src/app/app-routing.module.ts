@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ConversorDivisasComponent } from './divisas/pages/conversor-divisas/conversor-divisas.component';
 import { CrearLibroComponent } from './libros/pages/crear-libro/crear-libro.component';
 import { LibroComponent } from './libros/pages/libro/libro.component';
+import { PasajesComponent } from './pasaje/pages/pasajes/pasajes.component';
 
 const routes: Routes = [
   {
@@ -18,10 +20,10 @@ const routes: Routes = [
     path: 'nuevoLibro',
     component: CrearLibroComponent,
   },
-  // {
-  //   path: 'convertidor',
-  //   component: ConversorDivisasComponent,
-  // },
+  {
+    path: 'pasaje',
+    component: PasajesComponent,
+  },
   // {
   //   path: 'generadorQr',
   //   component: GeneradorQrComponent,
