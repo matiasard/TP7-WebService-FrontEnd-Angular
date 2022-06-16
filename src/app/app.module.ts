@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DivisasModule } from './divisas/divisas.module';
 import { LibrosModule } from './libros/libros.module';
+import { PasajeModule } from './pasaje/pasaje.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     DivisasModule,
     LibrosModule,
+    PasajeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
