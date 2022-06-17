@@ -1,1 +1,72 @@
-<p>pasaje-form works!</p>
+<main class="container">
+  <div class="row">
+    <h1 class="col-7 mx-auto text-center bg-primary text-light mt-5 mb-0 py-1">Nuevo Pasaje</h1>
+    <!--* PASAJE FORMULARIO -->
+    <form class="col-7 py-4 mx-auto" autocomplete="off"
+      [formGroup]="pasajeFormulario" (ngSubmit)="crearPasaje()">
+
+      <div class="mb-3">
+        <label for="first-name" class="form-label">Precio: </label>
+        <input type="number" class="form-control" formControlName="precioPasaje">
+        <div class="form-text text-danger fw-bold"
+          *ngIf="!pasajeFormulario.valid && pasajeFormulario.touched">
+          <span *ngIf="this.pasajeFormulario.get('precioPasaje')?.errors?.['required']">
+            (El Precio no puede quedar vacío)
+          </span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="first-name" class="form-label">Categoria: </label>
+        <select formControlName="categoriaPasajero" class="form-select">
+          <option disabled selected>Elige una categoria...</option>
+          <option *ngFor="let categoria of categoriasPasaje" [ngValue]="categoria">
+            {{ categoria }}
+          </option>
+        </select>
+        <div class="form-text text-danger fw-bold"
+          *ngIf="!pasajeFormulario.valid && pasajeFormulario.touched">
+          <span *ngIf="this.pasajeFormulario.get('categoriaPasajero')?.errors?.['required']">
+            (La Categoria no puede quedar vacío)
+          </span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="fechaCompra" class="form-label">Fecha Compra</label>
+        <input type="date" class="form-control"
+          placeholder="Ingresar la Fecha" name="fechaCompra"
+          formControlName="fechaCompra">
+
+        <div class="form-text text-danger fw-bold"
+          *ngIf="!pasajeFormulario.valid && pasajeFormulario.touched">
+          <span *ngIf="this.pasajeFormulario.get('fechaCompra')?.errors?.['required']">
+            (La Fecha no puede quedar vacío)
+          </span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="fechaCompra" class="form-label">Pasajero:</label>
+        <select formControlName="pasajero" class="form-select">
+          <option disabled selected>Elige un pasajero...</option>
+          <option *ngFor="let persona of pasajeros" [ngValue]="persona._id">
+            {{ persona.nro_documento }}, {{ persona.apellido }} {{ persona.nombre }}
+          </option>
+        </select>
+        <div class="form-text text-danger fw-bold"
+          *ngIf="!pasajeFormulario.valid && pasajeFormulario.touched">
+          <!-- *ngIf="!pasajeFormulario.valid && this.pasajeFormulario.get('pasajero')?.touched" -->
+          <span *ngIf="this.pasajeFormulario.get('pasajero')?.errors?.['required']">
+            (El campo Pasajero no puede quedar vacío)
+          </span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg col-12" type="submit"
+        [disabled]="!pasajeFormulario.valid">
+        Enviar
+      </button>
+    </form>
+  </div>
+</main>
