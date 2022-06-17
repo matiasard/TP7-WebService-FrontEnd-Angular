@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConversorDivisasComponent } from './divisas/pages/conversor-divisas/conversor-divisas.component';
 import { CrearLibroComponent } from './libros/pages/crear-libro/crear-libro.component';
 import { LibroComponent } from './libros/pages/libro/libro.component';
+import { PasajeFormComponent } from './pasaje/pages/pasaje-form/pasaje-form.component';
 import { PasajesComponent } from './pasaje/pages/pasajes/pasajes.component';
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'pasaje',
     component: PasajesComponent,
+  },
+  {
+    path: 'pasajeForm',
+    component: PasajeFormComponent,
   },
   // {
   //   path: 'generadorQr',
