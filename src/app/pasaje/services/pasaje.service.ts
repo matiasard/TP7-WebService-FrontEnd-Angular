@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,6 @@ export class PasajeService {
     const urlByCategoria: string = `${this.url}/pasaje/${busqueda}`;
     return this.http.get<any>(urlByCategoria).subscribe(
       (res) => {
-        // console.log(res);
         this.pasajesLista = res.results;
       },
       (error) => {
@@ -45,6 +45,12 @@ export class PasajeService {
         console.error(error);
       }
     );
+  }
+
+  //* Obtener todos los pasajeros
+  getAllPersonas(): Observable<any> {
+    const urlPersonas: string = `${this.url}/persona`;
+    return this.http.get(urlPersonas);
   }
 
   //* Borrar pasaje
