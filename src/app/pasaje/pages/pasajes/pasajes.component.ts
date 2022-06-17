@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PasajeService } from '../../services/pasaje.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class PasajesComponent implements OnInit {
   categoria!: string;
 
   //* dependency injection
-  constructor(private pasajeService: PasajeService) {}
+  constructor(private pasajeService: PasajeService, private router: Router) {}
 
   ngOnInit(): void {
     this.pasajeService.getPasajes();
@@ -23,17 +24,24 @@ export class PasajesComponent implements OnInit {
     return this.pasajeService.listaPasajes;
   }
 
-  //* Methods
+  //* ************* Methods ****************
+
+  //* Filtrar por categoria
   getPorCategoria(categoria: string): void {
     if (categoria === undefined) return;
-    if (categoria === 'Todos') this.pasajeService.getPasajes();
-    this.pasajeService.getPorCategoria(categoria);
+
+    categoria === 'Todos'
+      ? this.pasajeService.getPasajes()
+      : this.pasajeService.getPorCategoria(categoria);
   }
 
+  //* Crear
   createPasaje(): void {
     console.log('New Pasaje');
+    this.router.navigate(['pasajeForm']);
   }
 
+  //* Borrar
   deletePasaje(id: string): void {
     this.pasajeService.deltePasaje(id);
   }
