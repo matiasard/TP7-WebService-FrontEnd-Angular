@@ -1,11 +1,13 @@
 <div class="container-fluid">
+  <!-- Start NavBar -->
   <div class="row">
+    <app-header></app-header>
+    <!-- End NavBar -->
+
+    <!-- Start Content -->
     <div class="col">
-      <app-header></app-header>
+      <router-outlet></router-outlet>
     </div>
   </div>
-
-  <div class="col">
-    <router-outlet></router-outlet>
-  </div>
+  <!-- End Content -->
 </div>
