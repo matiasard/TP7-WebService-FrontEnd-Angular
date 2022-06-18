@@ -43,5 +43,7 @@ export class PasajeFormComponent implements OnInit {
   //* Crear nuevo pasaje
   crearPasaje() {
     console.log(this.pasajeFormulario.value);
+    this.pasajeService.createPasaje(this.pasajeFormulario.value);
+    this.router.navigate(['/pasaje']);
   }
 }

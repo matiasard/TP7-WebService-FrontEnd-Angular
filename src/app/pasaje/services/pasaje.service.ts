@@ -31,9 +31,20 @@ export class PasajeService {
   }
 
   //* Crear nuevo pasaje
-  createPasaje() {}
+  createPasaje(pasaje: any) {
+    const urlCreatePasaje: string = `${this.url}/pasaje`;
+    return this.http.post(urlCreatePasaje, pasaje).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        alert('Surgio un error al crear el Pasaje');
+        console.warn(error);
+      }
+    );
+  }
 
-  //* Filstrar por categoria
+  //* Filtrar por categoria
   getPorCategoria(busqueda: string) {
     const urlByCategoria: string = `${this.url}/pasaje/${busqueda}`;
     return this.http.get<any>(urlByCategoria).subscribe(

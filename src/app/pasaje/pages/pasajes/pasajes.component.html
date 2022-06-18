@@ -83,17 +83,17 @@
       <tbody>
         <tr *ngFor="let pasaje of pasajes">
 
-          <th>{{pasaje.precioPasaje}}</th>
+          <th>${{pasaje.precioPasaje}}</th>
           <td>{{pasaje.categoriaPasajero}}</td>
-          <td>{{pasaje.fechaCompra}}</td>
+          <td>{{pasaje.fechaCompra | date}} </td>
           <td>
             <div>
-              <p class="mb-1"><b>name:</b> {{pasaje.pasajero.nombre}}
+              <p class="mb-1"><b>Nombre:</b> {{pasaje.pasajero.nombre}}
                 {{pasaje.pasajero.apellido}}
               </p>
-              <p class="mb-1"><b>dni:</b> {{pasaje.pasajero.nro_documento}}
+              <p class="mb-1"><b>DNI:</b> {{pasaje.pasajero.nro_documento}}
               </p>
-              <p class="mb-1"><b>email:</b> {{pasaje.pasajero.email}}</p>
+              <p class="mb-1"><b>Email:</b> {{pasaje.pasajero.email}}</p>
             </div>
 
             <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
