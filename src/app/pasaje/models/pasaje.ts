@@ -1,10 +1,12 @@
 import { Persona } from './persona';
 
 export class Pasaje {
+  _id?: string;
   precioPasaje!: number;
   categoriaPasajero!: string;
-  fechaCompra!: string;
+  fechaCompra!: Date;
   pasajero!: Persona;
+  __v?: number;
 
   constructor() {}
 }

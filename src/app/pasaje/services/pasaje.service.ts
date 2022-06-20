@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pasaje } from '../models/pasaje';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,30 @@ export class PasajeService {
         console.warn(error);
       }
     );
+  }
+  //* Crear nuevo pasaje
+  updatePasaje(id: string, pasaje: any) {
+    const urlUpdatePasaje: string = `${this.url}/pasaje/${id}`;
+    return this.http.put(urlUpdatePasaje, pasaje).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        alert('Surgio un error al actualizar el Pasaje');
+        console.warn(error);
+      }
+    );
+  }
+
+  //* Buscar pasaje por Id
+  findPasajeById(pasajeId: any): Pasaje {
+    let pasaje: Pasaje = new Pasaje();
+    let indexId: number = this.pasajesLista.findIndex(
+      (pasaje) => pasaje._id == pasajeId
+    );
+    pasaje = this.pasajesLista[indexId];
+
+    return pasaje;
   }
 
   //* Filtrar por categoria

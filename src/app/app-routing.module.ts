@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'pasajeForm',
     component: PasajeFormComponent,
   },
+  {
+    path: 'pasajeForm/:id',
+    component: PasajeFormComponent,
+  },
   // {
   //   path: 'generadorQr',
   //   component: GeneradorQrComponent,

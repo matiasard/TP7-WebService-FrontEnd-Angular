@@ -1,6 +1,10 @@
 <main class="container">
   <div class="row">
-    <h1 class="col-7 mx-auto text-center bg-primary text-light mt-5 mb-0 py-1">Nuevo Pasaje</h1>
+    <h1 class="col-7 mx-auto text-center bg-primary text-light mt-5 mb-0 py-1">
+      <span *ngIf="accion == 'new'">Nuevo </span>
+      <span *ngIf="accion == 'update'">Actualizar </span>
+      Pasaje
+    </h1>
     <!--* PASAJE FORMULARIO -->
     <form class="col-7 py-4 mx-auto" autocomplete="off"
       [formGroup]="pasajeFormulario" (ngSubmit)="crearPasaje()">
@@ -65,7 +69,8 @@
 
       <button class="btn btn-primary btn-lg col-12" type="submit"
         [disabled]="!pasajeFormulario.valid">
-        Enviar
+        <span *ngIf="accion == 'new'">Crear</span>
+        <span *ngIf="accion == 'update'">Actualizar</span>
       </button>
     </form>
   </div>

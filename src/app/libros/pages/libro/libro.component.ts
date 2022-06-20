@@ -68,7 +68,6 @@ export class LibroComponent implements OnInit {
   iniciar2() {
     if (this.indice < this.librosDestacados.length) {
       this.libro = this.librosDestacados[this.indice];
-      console.log('HOLAA');
     }
   }
 

@@ -37,12 +37,16 @@ export class PasajesComponent implements OnInit {
 
   //* Crear
   createPasaje(): void {
-    console.log('New Pasaje');
     this.router.navigate(['pasajeForm']);
   }
 
   //* Borrar
   deletePasaje(id: string): void {
     this.pasajeService.deltePasaje(id);
+  }
+
+  updatePasaje(id: any): void {
+    // this.pasajeService.findPasajeById(id)
+    this.router.navigate(['pasajeForm', id]);
   }
 }
